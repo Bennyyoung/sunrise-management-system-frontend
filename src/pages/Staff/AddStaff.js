@@ -1,0 +1,276 @@
+import axios from 'axios';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css"
+import swal from 'sweetalert'
+
+export default class AddStaff extends Component {
+ constructor(props) {
+  super(props);
+
+  this.onChangeFirstName = this.onChangeFirstName.bind(this)
+  this.onChangeLastName = this.onChangeLastName.bind(this)
+  this.onChangeEmail = this.onChangeEmail.bind(this)
+  this.onChangeJoiningDate = this.onChangeJoiningDate.bind(this)
+  this.onChangePassword = this.onChangePassword.bind(this)
+  this.onChangeConfirmPassword = this.onChangeConfirmPassword.bind(this)
+  this.onChangeMobileNumber = this.onChangeMobileNumber.bind(this)
+  this.onChangeGender = this.onChangeGender.bind(this)
+  this.onChangeDesignation = this.onChangeDesignation.bind(this)
+  this.onChangeDateOfBirth = this.onChangeDateOfBirth.bind(this)
+  this.onChangeEducation = this.onChangeEducation.bind(this)
+  this.onSubmit = this.onSubmit.bind(this);
+
+  this.state = {
+   firstname: '',
+   lastname: '',
+   email: '',
+   joiningdate: new Date(),
+   password: '',
+   confirmpassword: '',
+   mobilenumber: '',
+   gender: '',
+   designation: '',
+   dateofbirth: new Date(),
+   education: '',
+   staffs:[]
+  };
+ }
+
+ // component
+
+ onChangeFirstName(e) {
+  this.setState({
+   firstname: e.target.value
+  });
+ }
+
+ onChangeLastName(e) {
+  this.setState({
+   lastname: e.target.value
+  })
+ }
+
+ onChangeEmail(e) {
+  this.setState({
+   email: e.target.value
+  })
+ }
+
+ onChangeJoiningDate(date) {
+  this.setState({
+   joiningdate: date
+  })
+ }
+
+ onChangePassword(e) {
+  this.setState({
+   password: e.target.value
+  })
+ }
+
+ onChangeConfirmPassword(e) {
+  this.setState({
+   confirmpassword: e.target.value
+  })
+ }
+
+ onChangeMobileNumber(e) {
+  this.setState({
+   mobilenumber: e.target.value
+  })
+ }
+
+ onChangeGender(e) {
+  this.setState({
+   gender: e.target.value
+  })
+ }
+
+ onChangeDesignation(e) {
+  this.setState({
+   designation: e.target.value
+  })
+ }
+
+ onChangeDateOfBirth(dateofbirth) {
+  this.setState({
+   dateofbirth: dateofbirth
+  })
+ }
+
+ onChangeEducation(e) {
+  this.setState({
+   education: e.target.value
+  })
+ }
+
+ onSubmit(e) {
+  e.preventDefault();
+
+  const staff = {
+   firstname: this.state.firstname,
+   lastname: this.state.lastname,
+   email: this.state.email,
+   joiningdate: this.state.joiningdate,
+   password: this.state.password,
+   confirmpassword: this.state.confirmpassword,
+   mobilenumber: this.state.mobilenumber,
+   gender: this.state.gender,
+   designation: this.state.designation,
+   dateofbirth: this.state.dateofbirth,
+   education: this.state.education
+  };
+
+  console.log(staff);
+
+  axios.post('https://sunrise-management-system.herokuapp.com/staffs/add', staff)
+   .then(res => {
+    console.log(res.data)
+    swal("Good job", "Staff successfully added", "success")
+   })
+   .catch(function (error) {
+    console.log(error)
+    swal("Couldn't add staff", "Please input or check all fields properly", "error")
+   })
+
+  this.setState({
+   firstname: '',
+   lastname: '',
+   email: '',
+   joiningdate: '',
+   password: '',
+   confirmpassword: '',
+   mobilenumber: '',
+   gender: '',
+   designation: '',
+   dateofbirth: '',
+   education: '',
+  })
+
+  this.props.history.push('/all-staffs')
+ }
+
+ render() {
+  return (
+   <div className="content-body">
+    <div className="container-fluid">
+
+     <div className="row page-titles mx-0">
+      <div className="col-sm-6 p-md-0">
+       <div className="welcome-text">
+        <h4>Add Staff</h4>
+       </div>
+      </div>
+      <div className="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+       <ol className="breadcrumb">
+        <li className="breadcrumb-item"><Link to="/">Home</Link></li>
+        <li className="breadcrumb-item active"><Link to="/all-staffs">Staffs</Link></li>
+        <li className="breadcrumb-item active"><Link to="/add-staff">Add Staff</Link></li>
+       </ol>
+      </div>
+     </div>
+
+     <div className="row">
+      <div className="col-xl-12 col-xxl-12 col-sm-12">
+       <div className="card">
+        <div className="card-header">
+         <h5 className="card-title">Basic Info</h5>
+        </div>
+        <div className="card-body">
+         <form onSubmit={this.onSubmit}>
+          <div className="row">
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">First Name</label>
+             <input type="text" className="form-control" value={this.state.firstname} onChange={this.onChangeFirstName} required />
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Last Name</label>
+             <input type="text" className="form-control" value={this.state.lastname} onChange={this.onChangeLastName} />
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Email Here</label>
+             <input type="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Joining Date</label><br />
+             <DatePicker
+              selected={this.state.joiningdate}
+              onChange={this.onChangeJoiningDate}
+             />
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Password</label>
+             <input type="password" className="form-control" value={this.state.password} onChange={this.onChangePassword} />
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Confirm Password</label>
+             <input type="password" className="form-control" value={this.state.confirmpassword} onChange={this.onChangeConfirmPassword} />
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Mobile Number (+234)</label>
+             <input type="tel" className="form-control" value={this.state.mobilenumber} onChange={this.onChangeMobileNumber} />
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Gender</label>
+             <select className="form-control" value={this.state.gender} onChange={this.onChangeGender}>
+              <option value="Gender">Please select a gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+             </select>
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Designation</label>
+             <input type="text" className="form-control" value={this.state.designation} onChange={this.onChangeDesignation} />
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Date of Birth</label><br />
+             <DatePicker
+              selected={this.state.dateofbirth}
+              onChange={this.onChangeDateOfBirth}
+             />
+
+             {/* <input name="datepicker" className="datepicker-default form-control" id="datepicker1" value={this.state.dateofbirth} onChange={this.onChangeDateOfBirth} /> */}
+            </div>
+           </div>
+           <div className="col-lg-6 col-md-6 col-sm-12">
+            <div className="form-group">
+             <label className="form-label">Education</label>
+             <input type="text" className="form-control" value={this.state.education} onChange={this.onChangeEducation} />
+            </div>
+           </div>
+           <div className="col-lg-12 col-md-12 col-sm-12">
+            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-light">Cencel</button>
+           </div>
+          </div>
+         </form>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  )
+ }
+}
