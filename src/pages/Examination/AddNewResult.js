@@ -31,10 +31,10 @@ export default class AddNewResult extends Component {
    subject: '',
    classtest: '',
    midtermtest: '',
-   midtermtotal: '',
+   // midtermtotal: '',
    exam: '',
-   examtotal: '',
-   average: '',
+   // examtotal: '',
+   // average: '',
    position: '',
    resultdate: new Date(),
    responsible: ''
