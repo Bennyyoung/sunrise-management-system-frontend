@@ -13,10 +13,10 @@ export default class EditResult extends Component {
   this.onChangeSubject = this.onChangeSubject.bind(this);
   this.onChangeClassTest = this.onChangeClassTest.bind(this);
   this.onChangeMidTermTest = this.onChangeMidTermTest.bind(this);
-  this.onChangeMidTermTotal = this.onChangeMidTermTotal.bind(this);
+  // this.onChangeMidTermTotal = this.onChangeMidTermTotal.bind(this);
   this.onChangeExam = this.onChangeExam.bind(this);
-  this.onChangeExamTotal = this.onChangeExamTotal.bind(this);
-  this.onChangeAverage = this.onChangeAverage.bind(this);
+  // this.onChangeExamTotal = this.onChangeExamTotal.bind(this);
+  // this.onChangeAverage = this.onChangeAverage.bind(this);
   this.onChangePosition = this.onChangePosition.bind(this);
   this.onChangeResultDate = this.onChangeResultDate.bind(this);
   this.onChangeResponsible = this.onChangeResponsible.bind(this);
@@ -27,10 +27,10 @@ export default class EditResult extends Component {
    subject: '',
    classtest: '',
    midtermtest: '',
-   midtermtotal: '',
+  //  midtermtotal: '',
    exam: '',
-   examtotal: '',
-   average: '',
+  //  examtotal: '',
+  //  average: '',
    position: '',
    resultdate: new Date(),
    responsible: ''
@@ -45,10 +45,10 @@ export default class EditResult extends Component {
      subject: response.data.subject,
      classtest: response.data.classtest,
      midtermtest: response.data.midtermtest,
-     midtermtotal: response.data.midtermtotal,
+    //  midtermtotal: response.data.midtermtotal,
      exam: response.data.exam,
-     examtotal: response.data.examtotal,
-     average: response.data.average,
+    //  examtotal: response.data.examtotal,
+    //  average: response.data.average,
      position: response.data.position,
      resultdate: new Date(response.data.resultdate),
      responsible: response.data.responsible
@@ -83,11 +83,11 @@ export default class EditResult extends Component {
   })
  }
 
- onChangeMidTermTotal(e) {
-  this.setState({
-   midtermtotal: e.target.value
-  })
- }
+//  onChangeMidTermTotal(e) {
+//   this.setState({
+//    midtermtotal: e.target.value
+//   })
+//  }
 
  onChangeExam(e) {
   this.setState({
@@ -95,17 +95,17 @@ export default class EditResult extends Component {
   })
  }
 
- onChangeExamTotal(e) {
-  this.setState({
-   examtotal: e.target.value
-  })
- }
+//  onChangeExamTotal(e) {
+//   this.setState({
+//    examtotal: e.target.value
+//   })
+//  }
 
- onChangeAverage(e) {
-  this.setState({
-   average: e.target.value
-  })
- }
+//  onChangeAverage(e) {
+//   this.setState({
+//    average: e.target.value
+//   })
+//  }
 
  onChangePosition(e) {
   this.setState({
@@ -133,10 +133,10 @@ export default class EditResult extends Component {
    subject: this.state.subject,
    classtest: this.state.classtest,
    midtermtest: this.state.midtermtest,
-   midtermtotal: this.state.midtermtotal,
+  //  midtermtotal: this.state.midtermtotal,
    exam: this.state.exam,
-   examtotal: this.state.examtotal,
-   average: this.state.average,
+  //  examtotal: this.state.examtotal,
+  //  average: this.state.average,
    position: this.state.position,
    resultdate: this.state.resultdate,
    responsible: this.state.responsible
@@ -230,30 +230,30 @@ export default class EditResult extends Component {
              <input type="number" className="form-control" value={this.state.midtermtest} onChange={this.onChangeMidTermTest} required />
             </div>
            </div>
-           <div className="col-lg-6 col-md-6 col-sm-12">
+           {/* <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="form-group">
              <label className="form-label">Mid-Term Total</label>
              <input type="number" className="form-control" value={this.state.midtermtotal} onChange={this.onChangeMidTermTotal} required />
             </div>
-           </div>
+           </div> */}
            <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="form-group">
              <label className="form-label">Exam</label>
              <input type="number" className="form-control" value={this.state.exam} onChange={this.onChangeExam} required />
             </div>
            </div>
-           <div className="col-lg-6 col-md-6 col-sm-12">
+           {/* <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="form-group">
              <label className="form-label">All Total</label>
              <input type="number" className="form-control" value={this.state.examtotal} onChange={this.onChangeExamTotal} required />
             </div>
-           </div>
-           <div className="col-lg-6 col-md-6 col-sm-12">
+           </div> */}
+           {/* <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="form-group">
              <label className="form-label">Average</label>
              <input type="number" className="form-control" value={this.state.average} onChange={this.onChangeAverage} required />
             </div>
-           </div>
+           </div> */}
            <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="form-group">
              <label className="form-label">Position</label>
