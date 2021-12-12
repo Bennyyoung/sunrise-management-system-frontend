@@ -89,11 +89,11 @@ export default class AddNewResult extends Component {
  //  })
  // }
 
- onChangeAverage(e) {
-  this.setState({
-   average: e.target.value
-  })
- }
+ // onChangeAverage(e) {
+ //  this.setState({
+ //   average: e.target.value
+ //  })
+ // }
 
  onChangePosition(e) {
   this.setState({
