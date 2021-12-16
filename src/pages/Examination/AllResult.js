@@ -7,20 +7,14 @@ const Result = props => (
   <tr>
     <td>{props.result.studentname}</td>
     <td>{props.result.subject}</td>
-    <td>{props.result.classtest}</td>
-    <td>{props.result.midtermtest}</td>
-    {/* Cummulative of Mid Term Total */}
-    <td>
-      {props.result.midtermtest} + {props.result.classtest}
-    </td>
+    <td>{props.result.test}</td>
     <td>{props.result.exam}</td>
     {/* Cummulative of All total */}
     <td>
-      {props.result.exam} + {props.result.midtermtest} + {props.result.classtest} + { }
+      {props.result.exam} + {props.result.test}
     </td>
     {/* Average */}
-    <td>({props.result.exam} + {props.result.midtermtest} + {props.result.classtest}) / 3</td>
-    <td>{props.result.position}</td>
+    <td>({props.result.exam} + {props.result.test} / 3</td>
     <td>{props.result.resultdate.substring(0, 10)}</td>
     <td>{props.result.responsible}</td>
 
@@ -121,7 +115,7 @@ export default class AllResult extends Component {
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Exam</th>
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>All Total</th>
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Average</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Position</th>
+                              {/* <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Position</th> */}
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Result Date</th>
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Responsible</th>
                             </tr>

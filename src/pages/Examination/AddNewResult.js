@@ -9,13 +9,10 @@ export default class AddNewResult extends Component {
  constructor(props) {
   super(props)
 
-
-
   this.onChangeStudentName = this.onChangeStudentName.bind(this)
   this.onChangeSubject = this.onChangeSubject.bind(this);
-  this.onChangeTest = this.onChangeTest(this)
+  this.onChangeTest = this.onChangeTest.bind(this);
   this.onChangeExam = this.onChangeExam.bind(this);
-  this.onChangePosition = this.onChangePosition.bind(this);
   this.onChangeResultDate = this.onChangeResultDate.bind(this);
   this.onChangeResponsible = this.onChangeResponsible.bind(this);
   this.onSubmit = this.onSubmit.bind(this);
@@ -23,8 +20,6 @@ export default class AddNewResult extends Component {
   this.state = {
    studentname: '',
    subject: '',
-   classtest: '',
-   midtermtest: '',
    test: '',
    exam: '',
    resultdate: new Date(),
@@ -52,7 +47,7 @@ export default class AddNewResult extends Component {
 
  onChangeTest(e) {
   this.setState({
-   classtest: e.target.value
+   test: e.target.value
   })
  }
 
@@ -82,7 +77,6 @@ export default class AddNewResult extends Component {
    studentname: this.state.studentname,
    subject: this.state.subject,
    test: this.state.test,
-   midtermtest: this.state.midtermtest,
    exam: this.state.exam,
    resultdate: this.state.resultdate,
    responsible: this.state.responsible

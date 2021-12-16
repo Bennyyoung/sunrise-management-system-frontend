@@ -11,9 +11,8 @@ export default class EditResult extends Component {
 
   this.onChangeStudentName = this.onChangeStudentName.bind(this)
   this.onChangeSubject = this.onChangeSubject.bind(this);
-  this.onChangeTest = this.onChangeTest(this)
+  this.onChangeTest = this.onChangeTest.bind(this)
   this.onChangeExam = this.onChangeExam.bind(this);
-  this.onChangePosition = this.onChangePosition.bind(this);
   this.onChangeResultDate = this.onChangeResultDate.bind(this);
   this.onChangeResponsible = this.onChangeResponsible.bind(this);
   this.onSubmit = this.onSubmit.bind(this);
@@ -21,8 +20,6 @@ export default class EditResult extends Component {
   this.state = {
    studentname: '',
    subject: '',
-   classtest: '',
-   midtermtest: '',
    test: '',
    exam: '',
    resultdate: new Date(),
@@ -36,8 +33,6 @@ export default class EditResult extends Component {
     this.setState({
      studentname: response.data.studentname,
      subject: response.data.subject,
-     classtest: response.data.classtest,
-     midtermtest: response.data.midtermtest,
      test: response.data.test,
      exam: response.data.exam,
      resultdate: new Date(response.data.resultdate),
@@ -73,12 +68,6 @@ export default class EditResult extends Component {
   })
  }
 
- onChangePosition(e) {
-  this.setState({
-   position: e.target.value
-  })
- }
-
  onChangeResultDate(resultdate) {
   this.setState({
    resultdate: resultdate
@@ -98,7 +87,6 @@ export default class EditResult extends Component {
    studentname: this.state.studentname,
    subject: this.state.subject,
    test: this.state.test,
-   midtermtest: this.state.midtermtest,
    exam: this.state.exam,
    resultdate: this.state.resultdate,
    responsible: this.state.responsible
@@ -180,7 +168,7 @@ export default class EditResult extends Component {
              </select>
             </div>
            </div>
-           
+
            <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="form-group">
              <label className="form-label">Test</label>
