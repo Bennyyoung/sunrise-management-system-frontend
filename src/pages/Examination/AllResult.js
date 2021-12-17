@@ -5,7 +5,7 @@ import swal from 'sweetalert'
 
 const Result = props => (
   <tr>
-    <td>{props.result.studentname}</td>
+    <td>{props.result.studentfullname}</td>
     <td>{props.result.subject}</td>
     <td>{props.result.test}</td>
     <td>{props.result.exam}</td>
@@ -29,15 +29,18 @@ export default class AllResult extends Component {
   constructor(props) {
     super(props);
 
+    this.state = { results: [] };
+
+
+
     this.deleteResult = this.deleteResult.bind(this)
 
-    this.state = { results: [] };
   }
 
   componentDidMount() {
     axios.get('https://sunrise-management-system.herokuapp.com/results/')
       .then(response => {
-        this.setState({ results: response.data })
+        this.setState({ results: response.data.studentsname })
       })
       .catch((error) => {
         console.log(error)
@@ -100,7 +103,7 @@ export default class AllResult extends Component {
                   <div className="card">
                     <div className="card-header">
                       <h4 className="card-title">All Students List  </h4>
-                      <a href="/add-new-result" className="btn btn-primary">+ Add new</a>
+                      <Link to="/add-new-result" className="btn btn-primary">+ Add new</Link>
                     </div>
                     <div className="card-body">
                       <div className="table-responsive">
@@ -108,14 +111,13 @@ export default class AllResult extends Component {
                           <thead>
                             <tr>
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Student Name</th>
+
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Subject</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Class Test</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Mid Term Test</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Mid Term Total</th>
+                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Test</th>
+                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Total</th>
+
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Exam</th>
-                              <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>All Total</th>
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Average</th>
-                              {/* <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Position</th> */}
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Result Date</th>
                               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Responsible</th>
                             </tr>

@@ -9,7 +9,7 @@ export default class AddNewResult extends Component {
  constructor(props) {
   super(props)
 
-  this.onChangeStudentName = this.onChangeStudentName.bind(this)
+  this.onChangeStudentFullName = this.onChangeStudentFullName.bind(this)
   this.onChangeSubject = this.onChangeSubject.bind(this);
   this.onChangeTest = this.onChangeTest.bind(this);
   this.onChangeExam = this.onChangeExam.bind(this);
@@ -18,7 +18,7 @@ export default class AddNewResult extends Component {
   this.onSubmit = this.onSubmit.bind(this);
 
   this.state = {
-   studentname: '',
+   studentfullname: [],
    subject: '',
    test: '',
    exam: '',
@@ -27,9 +27,16 @@ export default class AddNewResult extends Component {
   };
  }
 
- onChangeStudentName(e) {
+ componentDidMount() {
+  axios.get('https://sunrise-management-system.herokuapp.com/students')
+   .then(response => {
+    this.setState({ studentfullname: response.data.firstname + response.data.lastname })
+   })
+ }
+
+ onChangeStudentFullName(e) {
   this.setState({
-   studentname: e.target.value
+   studentfullname: e.target.value
   })
  }
 
@@ -74,7 +81,7 @@ export default class AddNewResult extends Component {
   e.preventDefault();
 
   const result = {
-   studentname: this.state.studentname,
+   studentfullname: this.state.studentfullname,
    subject: this.state.subject,
    test: this.state.test,
    exam: this.state.exam,
@@ -96,7 +103,7 @@ export default class AddNewResult extends Component {
    })
 
   this.setState({
-   studentname: '',
+   studentfullname: '',
    studentclass: '',
    subject: '',
    test: '',
@@ -135,12 +142,19 @@ export default class AddNewResult extends Component {
         <div className="card-body">
          <form onSubmit={this.onSubmit}>
           <div className="row">
+
            <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="form-group">
              <label className="form-label">Student Name</label>
-             <input type="text" className="form-control" value={this.state.studentname} onChange={this.onChangeStudentName} required />
+             <select className="form-control" value={this.state.studentfullname} onChange={this.onChangeStudentFullName} required>
+              <option value="Name">Please select a name</option>
+              <option value="name">{this.state.studentfullname}</option>
+             </select>
             </div>
            </div>
+
+
+
            <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="form-group">
              <label className="form-label">Class</label>
