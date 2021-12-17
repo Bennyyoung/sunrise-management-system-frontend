@@ -16,8 +16,14 @@ export default class Home extends Component {
       .then(response => {
         this.setState({
           students: response.data.length,
-          staff: response.data.length
+        })
+      })
 
+
+    axios.get('https://sunrise-management-system.herokuapp.com/staff')
+      .then(response => {
+        this.setState({
+          staff: response.data.length
         })
       })
   }
@@ -48,7 +54,18 @@ export default class Home extends Component {
                       </div>
                       <small>5 intakes in 20 Days(From Jan)</small>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
+            <div className="col-xl-3 col-xxl-3 col-sm-6">
+              <div className="widget-stat card bg-warning">
+                <div className="card-body">
+                  <div className="media">
+                    <span className="mr-3">
+                      <i className="la la-user"></i>
+                    </span>
                     <div className="media-body text-white">
                       <p className="mb-1">Total Staff</p>
                       <h3 className="text-white">
@@ -59,12 +76,11 @@ export default class Home extends Component {
                       </div>
                       {/* <small>5 intakes in 20 Days(From Jan)</small> */}
                     </div>
-
-
                   </div>
                 </div>
               </div>
             </div>
+
             <div className="col-xl-3 col-xxl-3 col-sm-6">
               <div className="widget-stat card bg-warning">
                 <div className="card-body">
@@ -84,6 +100,7 @@ export default class Home extends Component {
                 </div>
               </div>
             </div>
+            
             <div className="col-xl-3 col-xxl-3 col-sm-6">
               <div className="widget-stat card bg-secondary">
                 <div className="card-body">
