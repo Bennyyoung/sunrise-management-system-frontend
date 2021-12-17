@@ -109,23 +109,23 @@ export default class AllStudent extends Component {
            <a href="/add-student" className="btn btn-primary">+ Add new</a>
           </div>
           <div className="card-body">
-           <div className="table-responsive">
-            <table id="example3" className="display" style={{ minWidth: "845px" }}>
+           <div className="table-responsive recentOrderTable">
+            <table className="table verticle-middle table-responsive-md">
              <thead>
               <tr>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>First Name</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Last Name</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Parents Email</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Admission Date</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Roll No.</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Class</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Gender</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Parents Name</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Parents Number</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>DOB</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Blood Group</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Health Issues</th>
-               <th style={{ textAlign: 'center', padding: '0 2rem 0 2rem', justifyContent: 'right' }}>Address</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>First Name</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Last Name</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Parents Email</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Admission Date</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Roll No.</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Class</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Gender</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Parents Name</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Parents Number</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>DOB</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Blood Group</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem' }}>Health Issues</th>
+               <th scope="col" style={{ textAlign: 'center', padding: '0 2rem 0 2rem', justifyContent: 'right' }}>Address</th>
               </tr>
              </thead>
              <tbody style={{ textAlign: 'center', paddingLeft: '2rem' }}>
