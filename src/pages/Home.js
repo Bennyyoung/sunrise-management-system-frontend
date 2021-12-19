@@ -20,12 +20,14 @@ export default class Home extends Component {
       })
 
 
-    axios.get('https://sunrise-management-system.herokuapp.com/staff')
+    axios.get('https://sunrise-management-system.herokuapp.com/staffs')
       .then(response => {
         this.setState({
           staff: response.data.length
         })
       })
+
+      console.log(`Data response: ${response.data}`);
   }
 
   render() {
