@@ -30,7 +30,9 @@ export default class AddNewResult extends Component {
   componentDidMount() {
     axios.get('https://sunrise-management-system.herokuapp.com/students')
       .then(response => {
-        this.setState({ studentfullname: response.data.firstname + ' ' + response.data.lastname })
+        if (response.data.length > 0) {
+          this.setState({ snames: response.data.map(sname => sname.firstname + ' ' + sname.lastname)})
+        }
       })
   }
 
@@ -147,7 +149,7 @@ export default class AddNewResult extends Component {
                         <div className="form-group">
                           <label className="form-label">Student Name</label>
                           <select className="form-control" value={this.state.studentfullname} onChange={this.onChangeStudentFullName} required>
-                            {this.state.studentfullname.map(function (sname) {
+                            {this.state.snames.map(function (sname) {
                               return (
                                 <option
                                 key={sname}
