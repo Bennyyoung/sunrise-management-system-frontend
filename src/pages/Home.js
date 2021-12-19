@@ -25,9 +25,9 @@ export default class Home extends Component {
         this.setState({
           staff: response.data.length
         })
+        console.log(`Data response: ${response.data}`);
       })
 
-      console.log(`Data response: ${response.data}`);
   }
 
   render() {
