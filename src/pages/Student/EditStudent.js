@@ -43,7 +43,7 @@ export default class EditStudent extends Component {
  }
 
  componentDidMount() {
-  axios.get('https://sunrise-management-system.herokuapp.com/students/' + this.props.match.params.id)
+  axios.get(process.env.REACT_APP_BACK_END + '/students/' + this.props.match.params.id)
   .then(response => {
    this.setState({
     firstname: response.data.firstname,
@@ -165,7 +165,7 @@ export default class EditStudent extends Component {
 
   console.log(student);
 
-  axios.post('https://sunrise-management-system.herokuapp.com/students/update/' + this.props.match.params.id, student)
+  axios.post(process.env.REACT_APP_BACK_END + '/students/update/' + this.props.match.params.id, student)
   .then(res => {
    console.log(res.data)
    console.log(student)

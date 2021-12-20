@@ -125,7 +125,7 @@ export default class AddStaff extends Component {
 
   console.log(staff);
 
-  axios.post('https://sunrise-management-system.herokuapp.com/staffs/add', staff)
+  axios.post(process.env.REACT_APP_BACK_END + '/staffs/add', staff)
    .then(res => {
     console.log(res.data)
     swal("Good job", "Staff successfully added", "success")

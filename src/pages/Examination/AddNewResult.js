@@ -28,7 +28,7 @@ export default class AddNewResult extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://sunrise-management-system.herokuapp.com/students')
+    axios.get(process.env.REACT_APP_BACK_END + '/students')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({ snames: response.data.map(sname => sname.firstname + ' ' + sname.lastname)})
@@ -93,7 +93,7 @@ export default class AddNewResult extends Component {
 
     console.log(result);
 
-    axios.post('https://sunrise-management-system.herokuapp.com/results/add', result)
+    axios.post(process.env.REACT_APP_BACK_END + '/results/add', result)
       .then(res => {
         console.log(res.data)
         swal("Good job", "Student Result Successfully Uploaded", "success")

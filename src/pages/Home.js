@@ -10,9 +10,10 @@ export default class Home extends Component {
       staff: []
     }
   }
+  
 
   componentDidMount() {
-    axios.get('https://sunrise-management-system.herokuapp.com/students')
+    axios.get(process.env.REACT_APP_BACK_END + '/students')
       .then(response => {
         this.setState({
           students: response.data.length,
@@ -20,13 +21,15 @@ export default class Home extends Component {
       })
 
 
-    axios.get('https://sunrise-management-system.herokuapp.com/staffs')
+    axios.get(process.env.REACT_APP_BACK_END + '/staffs')
       .then(response => {
         this.setState({
           staff: response.data.length
         })
         console.log(`Data response: ${response.data}`);
       })
+
+      console.log(`BACKEND_URL: ${process.env.REACT_APP_BACK_END}`);
 
   }
 

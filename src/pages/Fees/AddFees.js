@@ -101,7 +101,7 @@ export default class AddFees extends Component {
 
   console.log(fees);
 
-  axios.post('https://sunrise-management-system.herokuapp.com/fees/add', fees)
+  axios.post(process.env.REACT_APP_BACK_END + '/fees/add', fees)
    .then(res => console.log(res.data))
    .catch(function (error) {
     console.log(error)

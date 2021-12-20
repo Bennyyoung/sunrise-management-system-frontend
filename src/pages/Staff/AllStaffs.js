@@ -34,7 +34,7 @@ export default class AllStaffs extends Component {
  }
 
  componentDidMount() {
-  axios.get('https://sunrise-management-system.herokuapp.com/staffs')
+  axios.get(process.env.REACT_APP_BACK_END + '/staffs')
    .then(response => {
     this.setState({ staffs: response.data })
    })
@@ -44,7 +44,7 @@ export default class AllStaffs extends Component {
  }
 
  deleteStaff(id) {
-  axios.delete('https://sunrise-management-system.herokuapp.com/staffs/' + id)
+  axios.delete(process.env.REACT_APP_BACK_END + '/staffs/'+ id)
    .then(res => {
     console.log(res.data)
     console.log('Staff successfully deleted')

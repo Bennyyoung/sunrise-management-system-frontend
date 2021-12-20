@@ -21,10 +21,7 @@ export default function Login() {
     email,
     password,
    };
-   // https://sunrise-management-system.herokuapp.com/auth/login
-  //  http://localhost:5000/auth/login
-
-   await axios.post("https://sunrise-management-system.herokuapp.com/auth/login",
+   await axios.post(process.env.REACT_APP_BACK_END+ '/auth/login',
     loginData,
     // {
     //  headers: { JWT_SECRET: process.env.JWT_SECRET }

@@ -25,7 +25,7 @@ export default class AllExpenses extends Component {
  }
 
  componentDidMount() {
-  axios.get('http://localhost:5000/expenses/')
+  axios.get(process.env.REACT_APP_BACK_END + '/expenses/')
    .then(response => {
     this.setState({ expenses: response.data })
    })
@@ -35,7 +35,7 @@ export default class AllExpenses extends Component {
  }
 
  deleteExpense(id) {
-  axios.delete('https://sunrise-management-system.herokuapp.com/expenses/' + id)
+  axios.delete(process.env.REACT_APP_BACK_END + '/expenses/' + id)
    .then(res => console.log(res.data));
 
   this.setState({

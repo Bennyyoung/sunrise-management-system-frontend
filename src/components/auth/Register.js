@@ -15,7 +15,6 @@ export default function Register() {
  async function register(e) {
   axios.defaults.headers.post['Access-Control-Allow-Methods'] = 'PATCH, DELETE, POST, GET, OPTIONS';
   e.preventDefault();
-  // https://sunrise-management-system.herokuapp.com/auth/ http://localhost:5000/auth
 
   try {
     const registerData = {
@@ -23,12 +22,8 @@ export default function Register() {
      password,
      confirmPassword
     };
-
-    // https://sunrise-management-system.herokuapp.com/auth/",
   
-    //  http://localhost:5000/auth/
-  
-    await axios.post("https://sunrise-management-system.herokuapp.com/auth/", registerData,
+    await axios.post(process.env.REACT_APP_BACK_END + '/auth/', registerData,
     
     //  {
     //   headers: { JWT_SECRET: process.env.JWT_SECRET }
