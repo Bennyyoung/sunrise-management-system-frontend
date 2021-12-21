@@ -32,6 +32,9 @@ export default class AddNewResult extends Component {
       .then(response => {
         if (response.data.length > 0) {
           this.setState({ snames: response.data.map(sname => sname.firstname + ' ' + sname.lastname)})
+          console.log("Response data length:"+ response.data.length)
+
+
         }
       })
   }
