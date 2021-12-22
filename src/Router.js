@@ -11,7 +11,7 @@ function Router() {
  const { loggedIn } = useContext(AuthContext);
  return (
   <div>
-   <BrowserRouter>
+   <HashRouter>
     <Navbar />
     <Sidebar />
     <Switch>
@@ -63,7 +63,7 @@ function Router() {
      }
 
     </Switch>
-   </BrowserRouter>
+   </HashRouter>
    {/* <Footer /> */}
   </div>
  )
