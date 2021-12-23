@@ -10,7 +10,7 @@ export default class Home extends Component {
       staff: []
     }
   }
-  
+
 
   componentDidMount() {
     axios.get(process.env.REACT_APP_BACK_END + '/students')
@@ -21,15 +21,15 @@ export default class Home extends Component {
       })
 
 
-    axios.get(process.env.REACT_APP_BACK_END + '/staffs')
-      .then(response => {
-        this.setState({
-          staff: response.data.length
-        })
-        console.log(`Data response: ${response.data}`);
-      })
+    // axios.get(process.env.REACT_APP_BACK_END + '/staffs')
+    //   .then(response => {
+    //     this.setState({
+    //       staff: response.data.length
+    //     })
+    //     console.log(`Data response: ${response.data}`);
+    //   })
 
-      console.log(`BACKEND_URL: ${process.env.REACT_APP_BACK_END}`);
+    // console.log(`BACKEND_URL: ${process.env.REACT_APP_BACK_END}`);
 
   }
 
@@ -105,7 +105,7 @@ export default class Home extends Component {
                 </div>
               </div>
             </div>
-            
+
             <div className="col-xl-3 col-xxl-3 col-sm-6">
               <div className="widget-stat card bg-secondary">
                 <div className="card-body">
