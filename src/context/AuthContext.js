@@ -8,7 +8,7 @@ function AuthContextProvider(props) {
 
  async function getLoggedIn() {
 
-  const loggedInRes = await axios.get(`${process.env.REACT_APP_BACK_END}/auth/loggedIn`);
+  const loggedInRes = await axios.get('https://sunrise-management-system.herokuapp.com/auth/loggedIn');
   setLoggedIn(loggedInRes.data);
   console.log("Logged in data "+ loggedIn);
  }
