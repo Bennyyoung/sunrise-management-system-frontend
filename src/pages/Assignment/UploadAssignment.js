@@ -22,7 +22,7 @@ export default class UploadAssignment extends Component {
  }
 
  componentDidMount() {
-  axios.get(process.env.REACT_APP_BACK_END + '/staffs')
+  axios.get('https://sunrise-management-system.herokuapp.com/staffs')
    .then(response => {
     if (response.data.length > 0) {
      this.setState({
@@ -66,7 +66,7 @@ export default class UploadAssignment extends Component {
 
   console.log('Form submitted');
 
-  axios.post(process.env.REACT_APP_BACK_END + '/upload', assignment)
+  axios.post('https://sunrise-management-system.herokuapp.com/upload', assignment)
 
    .then(res => {
     console.log(res.data)

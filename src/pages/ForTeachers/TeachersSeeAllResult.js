@@ -32,7 +32,7 @@ export default class TeachersSeeAllResult extends Component {
  }
 
  componentDidMount() {
-  axios.get(process.env.REACT_APP_BACK_END + '/results/')
+  axios.get('https://sunrise-management-system.herokuapp.com/results/')
    .then(response => {
     this.setState({ results: response.data })
    })

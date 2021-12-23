@@ -9,7 +9,7 @@ export default function LogoutBtn() {
  const history = useHistory();
 
  async function logout() {
-  await axios.get(process.env.REACT_APP_BACK_END + '/auth/logout');
+  await axios.get('https://sunrise-management-system.herokuapp.com/auth/logout');
 
   await getLoggedIn();
   history.push("/");

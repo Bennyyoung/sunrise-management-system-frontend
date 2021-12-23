@@ -32,7 +32,7 @@ export default class ParentsSeeAllStudent extends Component {
  }
 
  componentDidMount() {
-  axios.get(process.env.REACT_APP_BACK_END + '/students/')
+  axios.get('https://sunrise-management-system.herokuapp.com/students/')
    .then(response => {
     this.setState({ students: response.data })
    })
@@ -42,7 +42,7 @@ export default class ParentsSeeAllStudent extends Component {
  }
 
  deleteStudent(id) {
-  axios.delete(process.env.REACT_APP_BACK_END + '/students/' + id)
+  axios.delete('https://sunrise-management-system.herokuapp.com/students/' + id)
    .then(res => {
     console.log(res.data);
     console.log('Student successfully deleted')

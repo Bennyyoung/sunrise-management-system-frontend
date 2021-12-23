@@ -38,7 +38,7 @@ export default class AllResult extends Component {
   }
 
   componentDidMount() {
-    axios.get(process.env.REACT_APP_BACK_END + '/results/')
+    axios.get('https://sunrise-management-system.herokuapp.com/results/')
       .then(response => {
         this.setState({ results: response.data.studentsname })
       })
@@ -49,7 +49,7 @@ export default class AllResult extends Component {
 
 
   deleteResult(id) {
-    axios.delete(process.env.REACT_APP_BACK_END+ '/results/' + id)
+    axios.delete('https://sunrise-management-system.herokuapp.com/results/' + id)
       .then(res => {
         console.log(res.data);
         console.log('Results successfully deleted')

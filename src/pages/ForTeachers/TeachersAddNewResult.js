@@ -131,7 +131,7 @@ export default class TeachersAddNewResult extends Component {
 
   console.log(result);
 
-  axios.post(process.env.REACT_APP_BACK_END + '/results/add', result)
+  axios.post('https://sunrise-management-system.herokuapp.com/results/add', result)
    .then(res => {
     console.log(res.data)
     swal("Good job", "Student Result Successfully Uploaded", "success")

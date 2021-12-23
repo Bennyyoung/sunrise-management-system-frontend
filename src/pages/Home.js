@@ -13,7 +13,7 @@ export default class Home extends Component {
 
 
   componentDidMount() {
-    axios.get(process.env.REACT_APP_BACK_END + '/students')
+    axios.get('https://sunrise-management-system.herokuapp.com/students')
       .then(response => {
         this.setState({
           students: response.data.length,

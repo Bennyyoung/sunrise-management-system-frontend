@@ -82,7 +82,7 @@ export default class AddNewExpense extends Component {
 
   console.log(expense);
 
-  axios.post(process.env.REACT_APP_BACK_END + '/expenses/add', expense)
+  axios.post('https://sunrise-management-system.herokuapp.com/expenses/add', expense)
    .then(res => console.log(res.data))
    .catch(function (error) {
     console.log(error)

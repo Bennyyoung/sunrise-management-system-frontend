@@ -28,7 +28,7 @@ export default class EditResult extends Component {
  }
 
  componentDidMount() {
-  axios.get(process.env.REACT_APP_BACK_END + '/results/' + this.props.match.params.id)
+  axios.get('https://sunrise-management-system.herokuapp.com/results/' + this.props.match.params.id)
    .then(response => {
     this.setState({
      studentname: response.data.studentname,
@@ -94,7 +94,7 @@ export default class EditResult extends Component {
 
   console.log(result);
 
-  axios.post(process.env.REACT_APP_BACK_END + '/results/update' + this.props.match.params.id, result)
+  axios.post('https://sunrise-management-system.herokuapp.com/results/update' + this.props.match.params.id, result)
    .then(res => {
     console.log(res.data)
     console.log(result)

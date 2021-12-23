@@ -19,7 +19,7 @@ export default class ParentsUploadAssignment extends Component {
  }
 
  componentDidMount() {
-  axios.get(process.env.REACT_APP_BACK_END + '/staffs')
+  axios.get('https://sunrise-management-system.herokuapp.com/staffs')
    .then(response => {
     if (response.data.length > 0) {
      this.setState({
@@ -53,7 +53,7 @@ export default class ParentsUploadAssignment extends Component {
 
   console.log(assignment);
 
-  axios.post(process.env.REACT_APP_BACK_END + '/assignments/add', assignment)
+  axios.post('https://sunrise-management-system.herokuapp.com/assignments/add', assignment)
 
    .then(res => {
     console.log(res.data)
