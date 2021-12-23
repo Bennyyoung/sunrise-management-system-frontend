@@ -23,7 +23,7 @@ export default function Register() {
      confirmPassword
     };
   
-    await axios.post(process.env.REACT_APP_BACK_END + '/auth/', registerData,
+    await axios.post('https://sunrise-management-system.herokuapp.com/auth/', registerData,
     
     //  {
     //   headers: { JWT_SECRET: process.env.JWT_SECRET }
